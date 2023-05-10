@@ -15,6 +15,11 @@ When the weight of `AnimationScriptPlayable` is not `1`, the `PropertyStreamHand
 
 If an `AnimationClipPlayable` is added as input to `PshSetJob` and the `PropertyStreamHandle` is bound to a custom property in the AnimationClip, then `PropertyStreamHandle.SetFloat` will modify the property value as expected and be affected by the weight. However, when the weight is not `1`, the modified property value is affected by **the sign** of the original property value. 
 
+![Clip Info](./imgs/img_clipinfo.png)
+
+![Clip Info PSH](./imgs/img_clipinfo_psh.gif)
+
+
 Open the PlayableGraph Monitor window from "Tools/Bamboo/PlayableGraph Monitor" to inspect the PlayableGraph.
 
 ![PlayableGraph Monitor](./imgs/img_playablegraphmonitor.png)
