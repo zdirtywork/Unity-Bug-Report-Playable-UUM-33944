@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PSH Value: ?'
+  m_Text: 'Property Value: ?'
 --- !u!222 &78242432
 CanvasRenderer:
   m_ObjectHideFlags: 0

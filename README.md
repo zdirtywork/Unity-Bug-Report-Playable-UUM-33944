@@ -2,7 +2,9 @@
 
 ## About this issue
 
-When the weight of `AnimationScriptPlayable` is not `1`, the `PropertyStreamHandle` within it does not take effect.
+When the effective weight of `AnimationScriptPlayable` is not `1`, the `PropertyStreamHandle` within it does not take effect.
+
+![Sample](./imgs/img_sample.gif)
 
 ## How to reproduce
 

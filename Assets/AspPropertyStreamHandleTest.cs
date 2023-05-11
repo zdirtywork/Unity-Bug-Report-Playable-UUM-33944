@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 // About this issue:
 //
-// When the weight of AnimationScriptPlayable is not 1, the PropertyStreamHandle within it does not take effect.
+// When the effective weight of AnimationScriptPlayable is not 1, the PropertyStreamHandle within it does not take effect.
 // 
 // How to reproduce:
 // a. Open the "SampleScene".
@@ -80,7 +80,7 @@ public class AspPropertyStreamHandleTest : MonoBehaviour
         _graph.Play();
     }
 
-    private void LateUpdate() => pshValueText.text = _pshGetAsp.GetJobData<PshGetJob>().value.ToString("F3");
+    private void LateUpdate() => pshValueText.text = $"Property Value: {_pshGetAsp.GetJobData<PshGetJob>().value:F3}";
     private void OnDestroy() => _graph.Destroy();
 
     public void UpdateWeight(float aspWeight) => _mixer.SetInputWeight(0, aspWeight);
