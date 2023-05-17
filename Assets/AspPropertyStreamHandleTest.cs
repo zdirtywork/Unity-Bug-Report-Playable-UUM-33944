@@ -16,6 +16,10 @@ using UnityEngine.UI;
 // 
 // Open the PlayableGraph Monitor window from "Tools/Bamboo/PlayableGraph Monitor" to inspect the PlayableGraph.
 // 
+// Solution:
+// This issue can be temporarily fixed by binding a property named `GravityWeight` to the Animator.
+// But I am not sure if doing so will have any other negative effects.
+// 
 // PSH means PropertyStreamHandle
 // ASP means AnimationScriptPlayable
 
@@ -48,6 +52,7 @@ public class AspPropertyStreamHandleTest : MonoBehaviour
     public Text pshValueText;
     public AnimationClip clip;
     public string pshName = "PSH_Test";
+    public bool tempFix;
 
     private Animator _animator;
     private PlayableGraph _graph;
@@ -57,6 +62,15 @@ public class AspPropertyStreamHandleTest : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        if (tempFix)
+        {
+            // This issue can be temporarily fixed by binding a property named `GravityWeight` to the Animator.
+            // But I am not sure if doing so will have any other negative effects.
+            _animator.BindCustomStreamProperty("GravityWeight", CustomStreamPropertyType.Float);
+            // or use:
+            //_animator.BindStreamProperty(_animator.transform, typeof(Animator), "GravityWeight");
+        }
+
         _graph = PlayableGraph.Create("PSH Test");
         _graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
 

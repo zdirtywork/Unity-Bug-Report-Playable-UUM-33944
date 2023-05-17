@@ -25,3 +25,17 @@ If an `AnimationClipPlayable` is added as input to `PshSetJob` and the `Property
 Open the PlayableGraph Monitor window from "Tools/Bamboo/PlayableGraph Monitor" to inspect the PlayableGraph.
 
 ![PlayableGraph Monitor](./imgs/img_playablegraphmonitor.png)
+
+## Solution
+
+This issue can be temporarily fixed by binding a property named `GravityWeight` to the Animator. But I am not sure if doing so will have any other negative effects.
+
+```csharp
+_animator.BindCustomStreamProperty("GravityWeight", CustomStreamPropertyType.Float);
+```
+
+or
+
+```csharp
+_animator.BindStreamProperty(_animator.transform, typeof(Animator), "GravityWeight");
+```
